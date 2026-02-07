@@ -1937,9 +1937,9 @@ nav a:hover {
 }
 
 .p1-gradient-bg,.primary-btn,.primary-btn:after,.banner-content .clock_sec,.head-btn:hover,.callto-wrap,.single-project .content .content-overlay,.single-vol .content .content-overlay {
-    background-image: -moz-linear-gradient(0deg, #f8a92a 0%, #14749a 100%);
-    background-image: -webkit-linear-gradient(0deg, #f8a92a 0%, #14749a 100%);
-    background-image: -ms-linear-gradient(0deg, #f8a92a 0%, #14749a 100%);
+    background-image: -moz-linear-gradient(0deg, #519643 0%, #14749a 100%);
+    background-image: -webkit-linear-gradient(0deg, #519643 0%, #14749a 100%);
+    background-image: -ms-linear-gradient(0deg, #519643 0%, #14749a 100%);
 }
 
 .p2-gradient-bg {
