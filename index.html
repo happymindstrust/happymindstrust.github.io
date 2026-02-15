@@ -378,23 +378,45 @@ With an 80G Certification, every donation you make is eligible for tax exemption
 <script>
   const gallery = document.getElementById("galleryScroll");
 
-  let scrollAmount = 0;
+  let direction = 1;   // 1 = right, -1 = left
+  let autoScroll;
+  let userInteracting = false;
 
-  function autoScrollGallery() {
-    if (!gallery) return;
+  function startScroll() {
+    autoScroll = setInterval(() => {
 
-    scrollAmount += 1;
-    gallery.scrollLeft += 1;
+      if (userInteracting) return;
 
-    // reset when reached end
-    if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth) {
-      gallery.scrollLeft = 0;
-      scrollAmount = 0;
-    }
+      gallery.scrollLeft += direction;
+
+      // bounce at ends
+      if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth) {
+        direction = -1;
+      }
+
+      if (gallery.scrollLeft <= 0) {
+        direction = 1;
+      }
+
+    }, 20);
   }
 
-  setInterval(autoScrollGallery, 30); // speed control
+  function stopScroll() {
+    clearInterval(autoScroll);
+  }
+
+  // detect user interaction
+  gallery.addEventListener("mousedown", () => userInteracting = true);
+  gallery.addEventListener("touchstart", () => userInteracting = true);
+  gallery.addEventListener("wheel", () => userInteracting = true);
+
+  gallery.addEventListener("mouseup", () => userInteracting = false);
+  gallery.addEventListener("touchend", () => userInteracting = false);
+  gallery.addEventListener("mouseleave", () => userInteracting = false);
+
+  startScroll();
 </script>
+			
 
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
