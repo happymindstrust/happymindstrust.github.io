@@ -151,7 +151,24 @@
 				</div>
 			</section>
 			<!-- End project Area -->
+<div style="padding:25px; text-align:center; background:#f4f4f4;">
+    <h2 style="margin-bottom:15px;">Gallery</h2>
 
+    <div id="galleryScroll"
+      style="
+        display:flex;
+        overflow-x:auto;
+        gap:15px;
+        padding:10px;
+        scroll-behavior:smooth;
+      ">
+
+      <img src="images/char1.jpg" style="height:180px; border-radius:10px; flex-shrink:0;">
+      <img src="images/char2.jpg" style="height:180px; border-radius:10px; flex-shrink:0;">
+      
+
+    </div>
+</div>
 			<!-- Start about Area -->
 			<section class="about-area" id="about">
 				<div class="container-fluid">
@@ -358,6 +375,27 @@ With an 80G Certification, every donation you make is eligible for tax exemption
 				</div>
 			</footer>
 			<!-- End footer Area -->
+<script>
+  const gallery = document.getElementById("galleryScroll");
+
+  let scrollAmount = 0;
+
+  function autoScrollGallery() {
+    if (!gallery) return;
+
+    scrollAmount += 1;
+    gallery.scrollLeft += 1;
+
+    // reset when reached end
+    if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth) {
+      gallery.scrollLeft = 0;
+      scrollAmount = 0;
+    }
+  }
+
+  setInterval(autoScrollGallery, 30); // speed control
+</script>
+
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
